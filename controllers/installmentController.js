@@ -30,7 +30,7 @@ exports.approvedInstallment=catchAsync( async ( req, res, next ) => {
   installment.installmentCount++;
   installment.ballotPaid=req.body.ballotPaid;
   installment.possesion=req.body.possesion;
-  //Check if he clears his remaining  dues
+  //Check if he clears his remaining dues
   if ( installment.installmentCount===installment.totalInstallmentCount ) {
     if ( !installment.possesion||!installment.ballotPaid ) {
       return res.status( 200 ).json( {
@@ -43,9 +43,6 @@ exports.approvedInstallment=catchAsync( async ( req, res, next ) => {
     }
 
   }
-
-  console.log( "Line 43 reached" )
-
 
   installment.remainingBalance-=installment.total;
   installment.startDate.setMonth( installment.startDate.getMonth()+1 );

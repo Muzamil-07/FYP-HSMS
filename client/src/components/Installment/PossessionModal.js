@@ -12,12 +12,13 @@ import UsersContext from '../../context/users/UsersContext';
 import AppContext from '../../context/appState/AppContext';
 import jwtDecode from 'jwt-decode';
 import { message } from 'antd';
-
+import Stripe from 'react-stripe-checkout'
+import axios from 'axios';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 const PossessionModal=( props ) => {
-
-
+const navigate= useNavigate()
 
   const { approvalRequestCreds, setApprovalRequestCreds,pending,setPending }=props;
 
@@ -43,6 +44,26 @@ const PossessionModal=( props ) => {
     // if ( btnRef.current.classList.contains( 'file_uploading' ) ) {
       //   btnRef.current.style.display='none';
       // }
+  }
+
+  const handleToken = async (total_amount, token) => {
+    
+    try {
+      const res = await axios.patch(`http://localhost:3001/api/v1/users/pay/${approvalRequestCreds.installment}`, {
+        ballotPaid: false,
+        possesion: true,
+      },{
+        headers: { Authorization: `Bearer ${cookie}` }
+      })
+      navigate('/dashboard')
+      console.log('res', res)
+    } catch (err) {
+      console.log('nai chali', err)
+    }
+  }
+  const tokenHandler = token => {
+    if(approvalRequestCreds.installment)
+      handleToken(100, token)
   }
 
   const { Cookies }=useContext( UsersContext )
@@ -169,7 +190,12 @@ const PossessionModal=( props ) => {
                     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
                       <div class="accordion-body text-center">
 
-                        <a href="https://www.facebook.com/" target={'_blank'} type="button" className='btn payment_btn' >Pay with HBL</a>
+                      <button className='btn'>
+                          <Stripe
+                            stripeKey={`pk_test_51KDaxOHJsNVKrrArFFeZWlXBTm8vGhalFofDPI2LzAQsnSgozyFQO0xFO1eMwWB1Rzg7YfYvBO4G0eOa9owl8h8H00RpVLLMJx`}
+                            token={tokenHandler}
+                          />
+                        </button> 
                       </div>
                     </div>
                   </div>

@@ -16,7 +16,7 @@ import { faMountain } from '@fortawesome/free-solid-svg-icons';
 import { faMoneyBillTransfer } from '@fortawesome/free-solid-svg-icons';
 import { faComment } from '@fortawesome/free-solid-svg-icons';
 import BottomBar from "../BottomBar";
-
+import jwtDecode from 'jwt-decode'
 
 
 
@@ -24,6 +24,7 @@ import BottomBar from "../BottomBar";
 export default function Sidenavbar() {
   const location=useLocation();
   const { user, Cookies, setUser }=useContext( UsersContext )
+
   let navigate=useNavigate();
 
   const handleLogout=( e ) => {

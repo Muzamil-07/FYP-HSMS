@@ -25,6 +25,7 @@ const UserState=( props ) => {
     const res=await Api.get( endPoint, {
       headers: { "Authorization": "Bearer "+Cookies.get( 'jwt' ) }
     } );
+
     setUser( res.data.data );
     return res.data.data;
   }
@@ -63,15 +64,15 @@ const UserState=( props ) => {
   let userId;
   useEffect( async () => {
 
-    // if ( Cookies.get( 'jwt' ) ) {
-    //   userId=jwtDecode( Cookies.get( 'jwt' ) ).id;
-    //   console.log('hi from use effect');
-    //   const data=await retrieveUserInfo( userId );
-    //   // PERSISTING USER STATE(OPTIONAL)
-    //   window.localStorage.removeItem( 'UR' )
-    //   window.localStorage.setItem( 'UR', encryptData( data ) )
+    if ( Cookies.get( 'jwt' ) ) {
+      userId=jwtDecode( Cookies.get( 'jwt' ) ).id;
+      console.log('hi from use effect');
+      const data=await retrieveUserInfo( userId );
+      // PERSISTING USER STATE(OPTIONAL)
+      window.localStorage.removeItem( 'UR' )
+      window.localStorage.setItem( 'UR', encryptData( data ) )
 
-    // }
+    }
 
   }, [] )
 

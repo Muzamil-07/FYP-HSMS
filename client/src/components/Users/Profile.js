@@ -36,9 +36,9 @@ export default function Profile() {
         <FormHeading value="My Profile" />
       </div> */}
 
-            {/* <div className="col-8 text-center mx-auto">
+            <div className="col-8 text-center mx-auto">
         <img src={require( './../../profilePic.png' )} className='img-fluid' alt="" />
-      </div> */}
+      </div>
 
             <Card
               hoverable

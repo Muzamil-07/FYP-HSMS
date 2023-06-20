@@ -12,6 +12,9 @@ import UsersContext from '../../context/users/UsersContext';
 import AppContext from '../../context/appState/AppContext';
 import jwtDecode from 'jwt-decode';
 import { message } from 'antd';
+import axios from 'axios';
+import Stripe from 'react-stripe-checkout'
+
 
 const BallotModal=( props ) => {
 
@@ -49,6 +52,25 @@ const BallotModal=( props ) => {
 
 
   const cookie=Cookies.get( 'jwt' )
+  const handleToken = async (total_amount, token) => {
+    
+    try {
+      const res = await axios.patch(`http://localhost:3001/api/v1/users/pay/${approvalRequestCreds.installment}`, {
+        ballotPaid: true,
+        possesion: false,
+      },{
+        headers: { Authorization: `Bearer ${cookie}` }
+      })
+      window.location.reload();
+      console.log('res', res)
+    } catch (err) {
+      console.log('nai chali', err)
+    }
+  }
+  const tokenHandler = token => {
+    if(approvalRequestCreds.installment)
+      handleToken(100, token)
+  }
 
   const handleSubmit=async ( e ) => {
     e.preventDefault();
@@ -166,8 +188,13 @@ const BallotModal=( props ) => {
                     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
                       <div class="accordion-body text-center">
 
-                        <a href="https://www.facebook.com/" target={'_blank'} type="button" className='btn payment_btn' >Pay with HBL</a>
-                      </div>
+                      <button className='btn '>
+                          <Stripe
+                            stripeKey={`pk_test_51KDaxOHJsNVKrrArFFeZWlXBTm8vGhalFofDPI2LzAQsnSgozyFQO0xFO1eMwWB1Rzg7YfYvBO4G0eOa9owl8h8H00RpVLLMJx`}
+                            token={tokenHandler}
+                          />
+                        </button>                      
+                        </div>
                     </div>
                   </div>
                   <div class="accordion-item">
