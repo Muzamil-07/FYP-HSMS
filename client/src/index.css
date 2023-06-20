@@ -1,0 +1,25 @@
+.background{
+
+/* background-color: yellow; */
+background-image: url('https://images.pexels.com/photos/290275/pexels-photo-290275.jpeg?cs=srgb&dl=pexels-pixabay-290275.jpg&fm=jpg');
+
+position:relative;
+/* z-index:1; */
+margin-top: -225px;
+
+/* background-color: black;
+position: absolute;
+top: 30%; */
+
+}
+.clipPath{
+  clip-path: polygon(0 0, 69% 0, 34% 100%, 0 100%);
+
+  background-color: black;
+  padding-top: 220px;
+  height: 825px;
+  
+  
+  
+  /* height: 100vh; */
+}

@@ -1,0 +1,26 @@
+
+/* ----------------------MEDIA QUERIES---------------------------- */
+
+@media only screen and (min-width: 300px) and (max-width: 500px) {
+    .profile_container{
+        margin-top: 10rem;
+    }
+
+}
+@media(min-width: 501px) {
+    .ant-card-meta-title {
+        font-size: 1.2rem;
+    }
+
+    .ant-card-meta-description {
+        font-size: 1.2rem;
+    }
+
+    .ant-card.ant-card-bordered.ant-card-hoverable {
+
+        width: 450px !important;
+    }
+
+
+
+}

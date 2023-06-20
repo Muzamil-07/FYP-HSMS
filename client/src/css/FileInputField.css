@@ -1,0 +1,9 @@
+.file_form{
+  /* margin: auto; */
+  margin-top: 15px;
+  
+}
+.file_form input{
+  
+  border-radius: 0!important;
+}

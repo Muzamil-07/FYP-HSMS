@@ -1,0 +1,26 @@
+.welcome_background{
+
+/* background-color: yellow; */
+background-image: url('https://images.pexels.com/photos/290275/pexels-photo-290275.jpeg?cs=srgb&dl=pexels-pixabay-290275.jpg&fm=jpg');
+
+position:relative;
+/* z-index:1; */
+margin-top: -225px;
+
+/* background-color: black;
+position: absolute;
+top: 30%; */
+
+}
+.welcome_clipPath{
+  clip-path: polygon(0 0, 69% 0, 32.5% 100%, 0 100%);
+
+  background-color: black;
+  opacity: 0.8;
+  padding-top: 120px !important;
+  height: 825px;
+  
+  
+  
+  /* height: 100vh; */
+}

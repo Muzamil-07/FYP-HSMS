@@ -1,0 +1,28 @@
+.societyforms_main{
+    padding: 0rem 1rem;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: #bd960a !important;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn:hover {
+    color: #bd960a !important;
+
+}
+
+/* color: #bd960a !important; */
+
+
+
+/* ----------------------MEDIA QUERIES---------------------------- */
+
+@media only screen and (min-width: 300px) and (max-width: 500px) {
+    
+.ant-tabs-nav{
+    margin-left: 2rem !important;
+}
+
+
+
+}

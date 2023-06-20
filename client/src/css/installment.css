@@ -1,0 +1,40 @@
+.installmentSubheading{
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: .1rem;
+}
+
+.installmenSubheadingValue{
+  font-size: 1.2rem;
+  margin-left: .5rem;
+  font-weight: 400;
+}
+
+.installmentRow{
+  padding-left: 2rem;
+  margin-top: 4rem;
+}
+
+.installmentRight{
+  padding-right: 3rem;
+  text-align: right;
+}
+
+.mapBox{
+  margin: auto;
+  width: 80%;
+  height: 50vh;
+  /* margin-top: 3rem; */
+  margin-bottom: 2rem;
+}
+
+.ant-table-thead > tr > th{
+  background-color: #bd960a !important;
+  color: white !important;
+  padding: 8px 8px !important;
+}
+@media only screen and (min-width: 300px) and (max-width: 500px) {
+  .table_table {
+    margin-bottom: 4rem !important;
+  }
+}

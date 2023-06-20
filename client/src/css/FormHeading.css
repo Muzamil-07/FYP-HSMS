@@ -1,0 +1,33 @@
+.headingBox{
+  width: fit-content;
+  margin: auto;
+  
+}
+
+.formHeading{
+  color: black; 
+  padding-bottom: .3rem;
+  border-bottom: 2px solid #bd960a;
+
+ letter-spacing: 1px;
+ font-size: 2.5rem;
+
+}
+.sub_head {
+  font-size: 14px;
+  margin-top: -28px;
+  margin-left: 0;
+  margin-bottom: 0;
+}
+
+
+/* ----------------------MEDIA QUERIES---------------------------- */
+
+@media only screen and (min-width: 300px) and (max-width: 500px) {
+  .formHeading{
+    font-size: 2rem;
+  }
+  .sub_head{
+    font-size: 13px;
+  }
+}
